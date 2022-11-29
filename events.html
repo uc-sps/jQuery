@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JQuery Events</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head> 
+
+<body>
+
+        <button id="button1">hover on me </button>
+        <br><br>
+        <button id="button2">click </button>
+        <br><br>
+        <button id="button3">don't release click</button>
+        <br><br>
+        <button id="button4">Hover </button>
+        <br><br>
+        <button id="button5">click to focus</button>
+        <br><br>
+        <button id="button6">click to use blur</button>
+        <br><br>
+        <button id="button7">click me to hide</button>
+        <br><br>
+        <button id="button8">click to see magic</button>
+        <br><br>
+        Enter your name: <input type="text">
+        <p>Keypresses: <span class="keypress">0</span></p>
+        <div style="border:1px solid black;width:200px;height:100px;overflow:scroll;">Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. At, explicabo, suscipit aperiam officia odio doloremque soluta quasi
+                culpa, hic fuga sequi a dicta beatae maxime! Doloribus distinctio nihil officiis sit? In my younger and
+                more vulnerable years my father gave me some advice that I've been turning over in my mind ever since.
+                <br><br>
+                'Whenever you feel like criticizing anyone,' he told me, just remember that all the people in this world
+                haven't had the advantages that you've had.'
+        </div>
+        <p>scroll count = <span class="scroll">0</span></p>
+
+        <p>resize window  </p>
+        <p>resize count = <span class ="resize">0</span></p>
+</body>
+<script>
+        $("#button1").mouseenter(function () {
+                alert("mouse enter");
+        });
+        $("#button1").mouseleave(function () {
+                alert("mouse leave");
+        });
+        $("#button2").mousedown(function () {
+                alert("mouse button pressed");
+        });
+        $("#button3").mouseup(function () {
+                alert("mouse button released");
+        });
+        $("#button4").hover(function () {
+                alert("You entered p1!");
+        }, function () {
+                alert("Bye! You now leave p1!");
+        });
+        $("#button5").focus(function () {
+                $(this).css("background-color", "#cccccc");
+        });
+        $("#button6").blur(function () {
+                $(this).css("background-color", "orange");
+        });
+        $("#button7").on("click", function () {
+                $(this).hide();
+        });
+
+        $("#button8").on({
+                mouseenter: function () {
+                        $(this).css("background-color", "lightgray");
+                },
+                mouseleave: function () {
+                        $(this).css("background-color", "lightblue");
+                },
+                click: function () {
+                        $(this).css("background-color", "yellow");
+                }
+        });
+        i = 0;
+        $("input").keydown(function () {
+                $("input").css("background-color", "yellow");
+        });
+        $("input").keyup(function () {
+                $("input").css("background-color", "pink");
+        });
+        $("input").keypress(function () {
+                $(".keypress").text(i += 1);
+        });
+
+        j = 0;
+        $("div").scroll(function () {
+                $(".scroll").text(j += 1);
+        });
+
+        k=0;
+        $(window).resize(function () {
+                $(".resize").text(k += 1);
+        });
+
+
+
+
+
+</script>
+
+</html>

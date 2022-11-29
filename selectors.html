@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JQuery selectors</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+        <h1>It is a heading with h1 tag click to hide (we are using element selector)</h1>
+        <h2 class="select">This is a heading with h2 tag click to hide (we are using class selector) </h2>
+        <h3 id="id1">This a heading with h3 tag click to hide (we are using id selector) </h3>
+        <h4>This a heading with h4 tag click to hide </h4>
+        <p>This is first element with p tag</p>
+        <p class="tag">This is second element with p tag and class="tag"</p>
+        <p class="select">This is third element with p tag and class select</p>
+        <p style="color:red;">This is a red paragraph with style attribute.</p>
+        <button id="button1">Click me to hide all element </button>
+        <button id="button2">Click me to hide all styled element </button>
+
+        <div><br></div>
+
+        <table >
+                <tr>
+                        <th>Name</th>
+                        <th>branch</th>
+                </tr>
+                <tr>
+                        <td>surya</td>
+                        <td>CSE</td>
+                </tr>
+                <tr>
+                        <td>prince</td>
+                        <td>CSE</td>
+                </tr>
+                <tr>
+                        <td>abdul</td>
+                        <td>IT</td>
+                </tr>
+                <tr>
+                        <td>Qawar</td>
+                        <td>IT</th>
+                </tr>
+        </table>
+
+</body>
+<script>
+        $(document).ready(function () {
+                $("h1").click(function () { // element selector 
+                        $("h1").hide();
+                        console.log("hide using element selector");
+                });
+                $("p:first").click(function () {
+                        $("p:first").hide()
+                        console.log("you clicked on p using element selector p:first");
+                });
+                $("p.tag").click(function () {
+                        $("p.tag").hide()
+                        console.log("you clicked on p using element class selector with class tag");
+                });
+                $(".select").click(function () { // class selector
+                        $(".select").hide();
+                        console.log("hide using class selector");
+                });
+                $("#id1").click(function () {
+                        $("#id1").hide();
+                        console.log("hide using id tag");
+                });
+                console.log("we are using jQuery");
+                $("h4").click(function () {
+                        $(this).hide();
+                        console.log("hide using this selector");
+                });
+                
+                $("tr:even").css("background-color", "yellow");
+                $("tr:odd").css("color" , "blue");
+                $("#button1").click(function () {
+                        $("*").hide();
+                        console.log("all element is hidden now");
+                });
+                $("#button2").click(function(){
+                        $("[style]").hide();
+                        console.log("all styled attribute is hidden now");
+                });
+
+        });
+</script>
+
+</html>
