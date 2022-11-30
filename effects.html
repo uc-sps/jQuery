@@ -5,15 +5,43 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>startup </title>
+        <title>Jquery Effects</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
         <p id="line1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, nulla!</p>
-        <button id="show">show</button>
-        <button id="hide">hide</button>
-        <button id="toggle">toggle</button>
+        <button id="show">Show</button>
+        <button id="hide">Hide</button>
+        <button id="toggle1">Toggle</button>
+        <br><br>
+        <p id="line2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, nulla!</p>
+        <button id="fadein">Fade In</button>
+        <button id="fadeout">Fade Out</button>
+        <button id="toggle2">Fade Toggle </button>
+        <br><br>
+        <div id="line3">Hello world!</div> <br>
+        <button id="slideup">Slide Up</button>
+        <button id="slidedown">Slide Down</button>
+        <button id="toggle3">slide Toggle </button>
+        <br><br>
+        <button id="animate1">Animate</button>
+        <button id="stop1">Stop</button>
+        <div id="line4">Surya</div>
+        <br>
+        <div id="line5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, eveniet!</div>
+        <button id="hide1">hide</button>
+        <br>
+        <div id="line6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, eveniet!</div>
+        <button id="hide2">hide</button>
+        <br><br>
+        <button id="animate2">Animate</button>
+        <button id="stop2">Stop</button>
+        <div id="block" style="background:rgb(206, 176, 4);height:100px;width:100px;position:absolute;"></div>
+        <br><br>
+
+
+
 </body>
 <script>
         $(document).ready(function () {
@@ -23,13 +51,58 @@
                 $("#show").click(function () {
                         $("#line1").show(1000);
                 });
-                $("#toggle").click(function(){
+                $("#toggle1").click(function () {
                         $("#line1").toggle(500);
                 });
+                // fade in and fade out
+                $("#fadein").click(function () {
+                        $("#line2").fadeIn(1000);
+                });
+                $("#fadeout").click(function () {
+                        $("#line2").fadeOut(1000);
+                });
+                $("#toggle2").click(function () {
+                        $("#line2").fadeToggle(500);
+                });
+                //slide up and slide down 
+                $("#slideup").click(function () {
+                        $("#line3").slideUp(1000);
+                });
+                $("#slidedown").click(function () {
+                        $("#line3").slideDown(1000);
+                });
+                $("#toggle3").click(function () {
+                        $("#line3").slideToggle(500);
+                });
+                // animate
+                $("#animate1").click(function () {
+                        $("#line4").animate({
+                                fontSize: '14em',
+                                opacity: '0.5',
+                        }, 3000);
+                });
+                $("#animate2").click(function () {
+                        var div = $("#block");
+                        div.animate({ height: '300px', opacity: '0.4' }, "slow");
+                        div.animate({ width: '300px', opacity: '0.8' }, "slow");
+                        div.animate({ height: '100px', opacity: '0.4' }, "slow");
+                        div.animate({ width: '100px', opacity: '0.8' }, "slow");
+                });
+                $("#stop2").click(function () {
+                        $("#block").stop();
+                });
+                $("#stop1").click(function () {
+                        $("#line4").stop();
+                });
+                $("#hide1").click(function () {
+                        $("#line5").hide("slow", function () {
+                                alert("The paragraph is now hidden");
+                        });
+                });
+                $("#hide2").click(function () {
+                        $("#line6").css("color", "red").slideUp(2000).slideDown(2000);
+                });
         });
-
-
-
 </script>
 
 </html>
