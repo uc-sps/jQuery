@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <style>
+                .ancestors * {
+                        display: block;
+                        border: 2px solid lightgrey;
+                        color: lightgrey;
+                        padding: 5px;
+                        margin: 15px;
+                }
+
+                .descendants * {
+                        display: block;
+                        border: 2px solid lightgrey;
+                        color: lightgrey;
+                        padding: 5px;
+                        margin: 15px;
+                }
+
+                .siblings * {
+                        display: block;
+                        border: 2px solid lightgrey;
+                        color: lightgrey;
+                        padding: 5px;
+                        margin: 15px;
+                }
+
+                .div3 {
+                        border: 2px solid aqua;
+                        padding: 12px;
+                        margin: 15px;
+                }
+                .div4 {
+                        border: 2px solid rgb(255, 0, 47);
+                        padding: 12px;
+                        margin: 15px;
+                }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+        <div class="ancestors">
+                <div style="width:500px;">div (great-grandparent)
+                        <ul>ul (grandparent)
+                                <li>li (direct parent)
+                                        <span id="span1">span</span>
+                                </li>
+                        </ul>
+                </div>
+        </div>
+
+        <br><br>
+        <h1></h1>
+        <div class="descendants" style="width:500px;" id="div1">
+                <p>p (child)
+                        <span>span (grandchild)</span>
+                </p>
+                <p>p (child)
+                        <span>span (grandchild)</span>
+                </p>
+        </div>
+        <h1>Find</h1>
+        <div class="descendants" style="width:500px;" id="div2">
+                <p>p (child)
+                        <span>span (grandchild)</span>
+                </p>
+                <p>p (child)
+                        <span>span (grandchild)</span>
+                </p>
+        </div>
+        <div class="siblings">
+                <div>div (parent)
+                        <p>p</p>
+                        <span>span</span>
+                        <h2>h2</h2>
+                        <h3>h3</h3>
+                        <p>p</p>
+                </div>
+        </div>
+
+        <div class="div3">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius qui quas omnis modi voluptatum autem
+                        eaque soluta consequuntur aut nesciunt?</p>
+        </div>
+        <div class="div3">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius qui quas omnis modi voluptatum autem
+                        eaque soluta consequuntur aut nesciunt?</p>
+        </div>
+        <div class="div3">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius qui quas omnis modi voluptatum autem
+                        eaque soluta consequuntur aut nesciunt?</p>
+        </div>
+
+        <div class="div4">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius qui quas omnis modi voluptatum autem
+                        eaque soluta consequuntur aut nesciunt?</p>
+        </div>
+        <div class="div4">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius qui quas omnis modi voluptatum autem
+                        eaque soluta consequuntur aut nesciunt?</p>
+        </div>
+        <div class="div4" id="d">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius qui quas omnis modi voluptatum autem
+                        eaque soluta consequuntur aut nesciunt?</p>
+        </div>
+</body>
+<script>
+        $(document).ready(function () {
+                $("#span1").parentsUntil("div").css({ "color": "red", "border": "2px solid red" });//parents, parent
+        });
+        $("#div1").children().css({ "color": "red", "border": "2px solid red" });
+
+        $("#div2").find("span").css({ "color": "red", "border": "2px solid red" });
+
+        $("h2").siblings().css({ "color": "red", "border": "2px solid red" });
+        //The next() method returns the next sibling element of the selected element.
+        //The nextAll() method returns all next sibling elements of the selected element.
+        //The nextUntil() method returns all next sibling elements between two given arguments.
+
+        $(".div3").first().css("background-color", "orange");
+        //The last() method returns the last element of the specified elements.
+        //The eq(2) method returns an element with a specific index number of the selected elements.
+
+        $(".div4").filter("#d").css("background-color", "aqua");
+        //The not() method returns all elements that do not match the criteria.
+
+
+
+
+
+
+</script>
+
+
+</html>
