@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JQuery HTML</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <style>
+                .aqua {
+                        border-color: aqua;
+                }
+
+                #div1 {
+                        height: 100px;
+                        width: 300px;
+                        padding: 10px;
+                        margin: 3px;
+                        border: 1px solid blue;
+                        background-color: lightblue;
+                }
+        </style>
+</head>
+
+<body>
+        <!-- get -->
+        <h1>Get</h1>
+        <p id="test1">This is some <b>bold</b> text in a paragraph.</p>
+        <button id="btn1">Show Text</button>
+        <button id="btn2">Show HTML</button>
+        <br><br>
+        <p style="color: #ffbb00;" id="test2">name : <input type="text" id="test3"></p>
+        <button id="btn3">show attribute</button>
+        <button id="btn4">show value</button>
+
+        <!-- set -->
+        <h1>Set</h1>
+        <p id="test4">This is some text in a paragraph.</p>
+        <button id="btn5">Show Text</button>
+        <button id="btn6">Show HTML</button>
+        <br><br>
+        <p style="color: red;" id="test5">name : <input type="text" id="test6"></p>
+        <div id="div1"></div>
+        <button id="btn7">show value</button>
+        <br><br>
+        <button id="btn8">show old/new text</button>
+        <button id="btn9">show old/new HTML</button>
+        <button id="btn10">Append</button>
+        <button id="btn11">Prepended</button>
+        <button id="btn12">after</button>
+        <button id="btn13">before</button>
+        <button id="btn14">empty</button>
+        <button id="btn15">remove</button>
+        <button id="btn16">border</button>
+        <button id="btn17">add css</button>
+        <button id="btn18">find dimensions</button>
+
+</body>
+
+<script>
+        $(document).ready(function () {
+                //get 
+                $("#btn1").click(function () {
+                        alert("Text: " + $("#test1").text());
+                });
+                $("#btn2").click(function () {
+                        alert("HTML: " + $("#test1").html());
+                });
+                $("#btn3").click(function () {
+                        alert("Attribute: " + $("#test2").attr("style"));
+                });
+                $("#btn4").click(function () {
+                        alert("Value: " + $("#test3").val(""));
+                });
+
+                // set
+
+                $("#btn5").click(function () {
+                        $("#test4").text("<b> hello everyone </b>");
+                });
+                $("#btn6").click(function () {
+                        $("#test4").html("<b> hello everyone </b>");
+                });
+                $("#btn7").click(function () {
+                        $("#test6").val("hello");
+                });
+                $("#btn8").click(function () {
+                        $("#test1").text(function (i, oldtext) {
+                                return "old : " + oldtext + "newText : hello (index " + i + ")";
+                        });
+                });
+                $("#btn9").click(function () {
+                        $("#test1").html(function (i, oldtext) {
+                                return "old : " + oldtext + "newText : <b>hello<b> (index " + i + ")";
+                        });
+                });
+                $("#btn10").click(function () {
+                        $("#test1").append("<b> Appended </b>");
+                });
+                $("#btn11").click(function () {
+                        $("#test1").prepend("<b> Prepended </b>");
+                });
+                $("#btn12").click(function () {
+                        $("#test1").after("<b> after</b>");
+                });
+                $("#btn13").click(function () {
+                        $("#test1").before("<b> before </b>");
+                });
+                $("#btn14").click(function () {
+                        $("button").empty();
+                });
+                $("#btn15").click(function () {
+                        $("button").remove();
+                });
+                $("#btn16").click(function () {
+                        $("button").addClass("aqua")
+                });
+                $("#btn17").click(function () {
+                        $("h1").css("color", "#ffbb00")
+                });
+                $("#btn18").click(function () {
+                        var txt = "";
+                        txt += "Width of div: " + $("#div1").width() + "</br>";
+                        txt += "Height of div: " + $("#div1").height() + "</br>";
+                        txt += "Outer width of div: " + $("#div1").outerWidth() + "</br>";
+                        txt += "Outer height of div: " + $("#div1").outerHeight();
+                        $("#div1").html(txt);
+                });
+        });
+</script>
+
+</html>
